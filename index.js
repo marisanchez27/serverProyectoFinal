@@ -3,16 +3,9 @@ const app = require("./app");
 const port = process.env.PORT || 3977;
 const { API_VERSION, IP_SERVER, PORT_DB } = require("./config");
 
-// const mongoose = require("mongoose");
-// const app = require("./app");
-// const PORT_SERVER = process.env.PORT || 3977;
-// const { API_VERSION, IP_SERVER, PORT_DB } = require("./config");
+mongoose.connect(
+  `mongodb+srv://mariSanchez:Abc_1234@webpersonalproyecto.rleba.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`,
 
-//  mongoose.set("useFindAndModify", false);
-
- mongoose.connect(
-  `mongodb://${IP_SERVER}:${PORT_DB}/mariluzsanchezreyes`,
-  //  { useNewUrlParser: true, useUnifiedTopology: true },
   (err, res) => {
     if (err) {
       throw err;
@@ -23,7 +16,7 @@ const { API_VERSION, IP_SERVER, PORT_DB } = require("./config");
         console.log("##################");
         console.log("#####API REST####");
         console.log("##################");
-        console.log(`http://${IP_SERVER}:${port}/api/${API_VERSION}/`)
+        console.log(`http://${IP_SERVER}:${port}/api/${API_VERSION}/`);
       });
     }
   }

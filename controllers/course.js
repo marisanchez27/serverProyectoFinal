@@ -54,7 +54,7 @@ function deleteCourse(req, res) {
       } else {
         res.status(200).send({
           code: 200,
-          message: "El curso ha sido elinado correctamente."
+          message: "El curso ha sido eliminado correctamente."
         });
       }
     }
@@ -72,11 +72,11 @@ function updateCourse(req, res) {
       if (!courseUpdate) {
         res
           .status(404)
-          .send({ code: 404, message: "No se ha encontrado ningun curso." });
+          .send({ code: 404, message: "No se ha encontrado ningun producto." });
       } else {
         res
           .status(200)
-          .send({ code: 200, message: "Curso actualizado correctamente." });
+          .send({ code: 200, message: "producto actualizado correctamente." });
       }
     }
   });
