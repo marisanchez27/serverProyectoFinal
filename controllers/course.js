@@ -9,16 +9,19 @@ function addCourse(req, res) {
     if (err) {
       res
         .status(400)
-        .send({ code: 400, message: "El curso que estas creando ya existe." });
+        .send({
+          code: 400,
+          message: "El producto que estas creando ya existe.",
+        });
     } else {
       if (!courseStored) {
         res
           .status(400)
-          .send({ code: 400, message: "No se ha podido crear el curso." });
+          .send({ code: 400, message: "No se ha podido crear el producto." });
       } else {
         res
           .status(200)
-          .send({ code: 200, message: "Curso creado correctamente." });
+          .send({ code: 200, message: "producto creado correctamente." });
       }
     }
   });
@@ -34,7 +37,10 @@ function getCourses(req, res) {
         if (!coursesStored) {
           res
             .status(404)
-            .send({ code: 404, message: "No se ha encontrado ningun curso." });
+            .send({
+              code: 404,
+              message: "No se ha encontrado ningun producto.",
+            });
         } else {
           res.status(200).send({ code: 200, courses: coursesStored });
         }
@@ -50,11 +56,11 @@ function deleteCourse(req, res) {
       res.status(500).send({ code: 500, message: "Erro del servidor." });
     } else {
       if (!courseDeleted) {
-        res.status(404).send({ code: 404, message: "Curso no encontrado." });
+        res.status(404).send({ code: 404, message: "producto no encontrado." });
       } else {
         res.status(200).send({
           code: 200,
-          message: "El curso ha sido eliminado correctamente."
+          message: "El producto ha sido eliminado correctamente.",
         });
       }
     }
@@ -86,5 +92,5 @@ module.exports = {
   addCourse,
   getCourses,
   deleteCourse,
-  updateCourse
+  updateCourse,
 };
